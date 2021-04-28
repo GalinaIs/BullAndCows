@@ -1,30 +1,30 @@
 package ru.myproject;
 
 import org.springframework.stereotype.Component;
-import ru.myproject.makenumber.computer.ComputerMakeNumber;
+import ru.myproject.makenumber.guesser.GuesserWhenComputerMakeNumber;
 
 import java.util.Scanner;
 
 @Component
 public class Game {
-    private final ComputerMakeNumber computerMakeNumber;
+    private final GuesserWhenComputerMakeNumber guesserWhenComputerMakeNumber;
     private final Scanner scanner;
 
-    public Game(ComputerMakeNumber computerMakeNumber) {
-        this.computerMakeNumber = computerMakeNumber;
+    public Game(GuesserWhenComputerMakeNumber guesserWhenComputerMakeNumber) {
+        this.guesserWhenComputerMakeNumber = guesserWhenComputerMakeNumber;
         this.scanner = new Scanner(System.in);
     }
 
     public void run() {
         System.out.println("Введите режим игры: 1 - число загадывает компьютер, 2 - число загадывает человек");
-        int mode = scanner.nextInt();
+        String mode = scanner.next();
 
         switch (mode) {
-            case 1:
+            case "1":
                 int countDigits = getCountDigitsFromUser();
-                computerMakeNumber.tryGuessNumber(countDigits);
+                guesserWhenComputerMakeNumber.tryGuessNumber(countDigits);
                 break;
-            case 2:
+            case "2":
                 break;
             default:
                 throw new IllegalArgumentException("Значение " + mode + " не поддерживается");
@@ -32,11 +32,19 @@ public class Game {
     }
 
     private int getCountDigitsFromUser() {
-        System.out.println("Введите количество цифр в числе - от 1 до 10");
-        int countDigits = scanner.nextInt();
-        if (countDigits < 1 || countDigits > 10) {
-            throw new IllegalArgumentException("Количество цифр в числе должно быть от 1 до 10");
+        while (true) {
+            System.out.println("Введите количество цифр в числе - от 1 до 10");
+            if (scanner.hasNextInt()) {
+                int countDigits = scanner.nextInt();
+                if (countDigits >= 1 && countDigits <= 10) {
+                    return countDigits;
+                } else {
+                    System.out.println("Число должно быть от 1 до 10");
+                }
+            } else {
+                System.out.println("Введенное значение не является числом");
+            }
+            scanner.next();
         }
-        return countDigits;
     }
 }

@@ -56,9 +56,17 @@ class CheckerStringImplTest {
 
     @Test
     @DisplayName("должен возращать 3 быка и 0 коров и игра окончена")
-    void should() {
+    void shouldReturn3Bulls0CowsAndGameIsFinish() {
         BullsCows bullsCows = checkerString.checkString("111", "111");
         assertEquals(new BullsCows(3, 0), bullsCows);
         assertTrue(bullsCows.isFinishedGame(3));
+    }
+
+    @Test
+    @DisplayName("должен возращать 1 бык и 1 корова и игра не окончена")
+    void shouldReturn1Bulls1CowsAndGameIsNotFinish() {
+        BullsCows bullsCows = checkerString.checkString("1221", "2233");
+        assertEquals(new BullsCows(1, 1), bullsCows);
+        assertFalse(bullsCows.isFinishedGame(4));
     }
 }
