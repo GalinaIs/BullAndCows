@@ -23,6 +23,10 @@ public class BullsCows {
         return bulls == count && cows == 0;
     }
 
+    public int getBulls() {
+        return bulls;
+    }
+
     @Override
     public String toString() {
         return bulls + " быков и " + cows + " коров";

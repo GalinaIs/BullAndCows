@@ -2,6 +2,7 @@ package ru.myproject;
 
 import org.springframework.stereotype.Component;
 import ru.myproject.makenumber.guesser.GuesserWhenComputerMakeNumber;
+import ru.myproject.makenumber.guesser.GuesserWhenPersonMakeNumber;
 
 import java.util.Scanner;
 
@@ -9,9 +10,11 @@ import java.util.Scanner;
 public class Game {
     private final GuesserWhenComputerMakeNumber guesserWhenComputerMakeNumber;
     private final Scanner scanner;
+    private final GuesserWhenPersonMakeNumber guesserWhenPersonMakeNumber;
 
-    public Game(GuesserWhenComputerMakeNumber guesserWhenComputerMakeNumber) {
+    public Game(GuesserWhenComputerMakeNumber guesserWhenComputerMakeNumber, GuesserWhenPersonMakeNumber guesserWhenPersonMakeNumber) {
         this.guesserWhenComputerMakeNumber = guesserWhenComputerMakeNumber;
+        this.guesserWhenPersonMakeNumber = guesserWhenPersonMakeNumber;
         this.scanner = new Scanner(System.in);
     }
 
@@ -25,6 +28,8 @@ public class Game {
                 guesserWhenComputerMakeNumber.tryGuessNumber(countDigits);
                 break;
             case "2":
+                int countDigits1 = getCountDigitsFromUser();
+                guesserWhenPersonMakeNumber.tryGuessNumber(countDigits1);
                 break;
             default:
                 throw new IllegalArgumentException("Значение " + mode + " не поддерживается");
