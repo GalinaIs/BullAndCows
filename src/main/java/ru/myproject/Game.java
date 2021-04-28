@@ -1,7 +1,7 @@
 package ru.myproject;
 
 import org.springframework.stereotype.Component;
-import ru.myproject.computer.ComputerMakeNumber;
+import ru.myproject.makenumber.computer.ComputerMakeNumber;
 
 import java.util.Scanner;
 

@@ -1,17 +1,13 @@
-package ru.myproject.computer;
+package ru.myproject.makenumber;
 
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @Component
-public class ComputerMakeNumberImpl implements ComputerMakeNumber {
+public class MakerNumberImpl implements MakerNumber {
     @Override
-    public void tryGuessNumber(int countDigits) {
-        String guessedNumber = guessNumber(countDigits);
-    }
-
-    String guessNumber(int countDigits) {
+    public String makeNumber(int countDigits) {
         Random random = new Random();
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < countDigits; i++) {
