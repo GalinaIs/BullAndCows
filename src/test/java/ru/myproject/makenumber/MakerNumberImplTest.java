@@ -11,7 +11,7 @@ class MakerNumberImplTest {
 
     @Test
     @DisplayName("должен загадывать число с заданным количеством цифр")
-    void shouldGuessNumberWithGivenNumberDigits() {
+    void shouldMakeNumberWithGivenNumberDigits() {
         String guessedNumber = makerNumber.makeNumber(2);
         assertEquals(2, guessedNumber.length());
     }
