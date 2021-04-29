@@ -1,7 +1,7 @@
-package ru.myproject.makenumber.guesser;
+package ru.myproject.game.guesser;
 
 import org.springframework.stereotype.Component;
-import ru.myproject.makenumber.BullsCows;
+import ru.myproject.game.BullsCows;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -32,8 +32,8 @@ public class GuesserWhenPersonMakeNumber implements GuesserNumber {
         for (int i = 0; i <= 9 && count < countDigits; i++) {
             BullsCows bullsCows = checkNumber(String.valueOf(i).repeat(countDigits));
             if (!bullsCows.equals(empty)) {
-                sb.append(String.valueOf(i).repeat(Math.max(0, bullsCows.getBulls())));
-                count++;
+                sb.append(String.valueOf(i).repeat(bullsCows.getBulls()));
+                count += bullsCows.getBulls();
             }
         }
         return sb.toString();

@@ -1,8 +1,8 @@
-package ru.myproject;
+package ru.myproject.game;
 
 import org.springframework.stereotype.Component;
-import ru.myproject.makenumber.guesser.GuesserWhenComputerMakeNumber;
-import ru.myproject.makenumber.guesser.GuesserWhenPersonMakeNumber;
+import ru.myproject.game.guesser.GuesserWhenComputerMakeNumber;
+import ru.myproject.game.guesser.GuesserWhenPersonMakeNumber;
 
 import java.util.Scanner;
 

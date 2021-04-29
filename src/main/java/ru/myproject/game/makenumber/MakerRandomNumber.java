@@ -1,11 +1,11 @@
-package ru.myproject.makenumber;
+package ru.myproject.game.makenumber;
 
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @Component
-public class MakerNumberImpl implements MakerNumber {
+public class MakerRandomNumber implements MakerNumber {
     @Override
     public String makeNumber(int countDigits) {
         Random random = new Random();

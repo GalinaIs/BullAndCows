@@ -1,4 +1,4 @@
-package ru.myproject.makenumber;
+package ru.myproject.game;
 
 import java.util.Objects;
 

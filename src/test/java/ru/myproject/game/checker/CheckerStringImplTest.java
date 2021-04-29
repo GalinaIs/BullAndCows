@@ -1,8 +1,8 @@
-package ru.myproject.makenumber.checker;
+package ru.myproject.game.checker;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.myproject.makenumber.BullsCows;
+import ru.myproject.game.BullsCows;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,9 +1,9 @@
-package ru.myproject.makenumber.guesser;
+package ru.myproject.game.guesser;
 
 import org.springframework.stereotype.Component;
-import ru.myproject.makenumber.BullsCows;
-import ru.myproject.makenumber.MakerNumber;
-import ru.myproject.makenumber.checker.CheckerString;
+import ru.myproject.game.BullsCows;
+import ru.myproject.game.makenumber.MakerNumber;
+import ru.myproject.game.checker.CheckerString;
 
 import java.util.Scanner;
 

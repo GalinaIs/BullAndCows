@@ -1,4 +1,4 @@
-package ru.myproject.makenumber;
+package ru.myproject.game.makenumber;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Класс MakerNumberImpl ")
-class MakerNumberImplTest {
-    private final MakerNumberImpl makerNumber = new MakerNumberImpl();
+class MakerRandomNumberTest {
+    private final MakerRandomNumber makerNumber = new MakerRandomNumber();
 
     @Test
     @DisplayName("должен загадывать число с заданным количеством цифр")

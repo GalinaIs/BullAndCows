@@ -1,7 +1,7 @@
-package ru.myproject.makenumber.checker;
+package ru.myproject.game.checker;
 
 import org.springframework.stereotype.Component;
-import ru.myproject.makenumber.BullsCows;
+import ru.myproject.game.BullsCows;
 
 import java.util.*;
 
