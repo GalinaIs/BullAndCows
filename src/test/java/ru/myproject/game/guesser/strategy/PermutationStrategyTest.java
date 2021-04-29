@@ -45,6 +45,7 @@ class PermutationStrategyTest {
         assertTrue(number.isPresent());
         assertEquals("9", number.get());
         number = permutationStrategy.getNumber(new BullsCows());
+        System.out.println(number);
         assertFalse(number.isPresent());
     }
 
@@ -126,11 +127,11 @@ class PermutationStrategyTest {
         assertEquals("44", number.get());
         number = permutationStrategy.getNumber(new BullsCows(1, 0));
         assertTrue(number.isPresent());
-        assertEquals("34", number.get());
-        number = permutationStrategy.getNumber(new BullsCows(0, 2));
+        assertEquals("30", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(0, 1));
         assertTrue(number.isPresent());
-        assertEquals("43", number.get());
-        number = permutationStrategy.getNumber(new BullsCows(2, 0));
+        assertEquals("03", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
         assertTrue(number.isPresent());
         assertEquals("43", number.get());
     }
@@ -154,24 +155,82 @@ class PermutationStrategyTest {
         assertEquals("333", number.get());
         number = permutationStrategy.getNumber(new BullsCows(1, 0));
         assertTrue(number.isPresent());
-        assertEquals("123", number.get());
-        number = permutationStrategy.getNumber(new BullsCows(1, 2));
+        assertEquals("100", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(0, 1));
         assertTrue(number.isPresent());
-        assertEquals("213", number.get());
-        number = permutationStrategy.getNumber(new BullsCows(0, 3));
+        assertEquals("010", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(0, 1));
         assertTrue(number.isPresent());
-        assertEquals("312", number.get());
-        number = permutationStrategy.getNumber(new BullsCows(1, 2));
+        assertEquals("001", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
         assertTrue(number.isPresent());
-        assertEquals("132", number.get());
-        number = permutationStrategy.getNumber(new BullsCows(0, 3));
+        assertEquals("201", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 1));
         assertTrue(number.isPresent());
-        assertEquals("231", number.get());
-        number = permutationStrategy.getNumber(new BullsCows(1, 2));
+        assertEquals("021", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(2, 0));
         assertTrue(number.isPresent());
         assertEquals("321", number.get());
         number = permutationStrategy.getNumber(new BullsCows(3, 0));
         assertTrue(number.isPresent());
         assertEquals("321", number.get());
+    }
+
+    @Test
+    @DisplayName("должен найти загаданное число длины 6")
+    void shouldFindNumberWithLength6() {
+        // загадали число 214365
+        PermutationStrategy permutationStrategy = new PermutationStrategy(6);
+        Optional<String> number = permutationStrategy.getNumber(new BullsCows());
+        assertTrue(number.isPresent());
+        assertEquals("000000", number.get());
+        number = permutationStrategy.getNumber(new BullsCows());
+        assertTrue(number.isPresent());
+        assertEquals("111111", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
+        assertTrue(number.isPresent());
+        assertEquals("222222", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
+        assertTrue(number.isPresent());
+        assertEquals("333333", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
+        assertTrue(number.isPresent());
+        assertEquals("444444", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
+        assertTrue(number.isPresent());
+        assertEquals("555555", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
+        assertTrue(number.isPresent());
+        assertEquals("666666", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
+        assertTrue(number.isPresent());
+        assertEquals("100000", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(0, 1));
+        assertTrue(number.isPresent());
+        assertEquals("010000", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(1, 0));
+        assertTrue(number.isPresent());
+        assertEquals("210000", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(2, 0));
+        assertTrue(number.isPresent());
+        assertEquals("213000", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(2, 1));
+        assertTrue(number.isPresent());
+        assertEquals("210300", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(3, 0));
+        assertTrue(number.isPresent());
+        assertEquals("214300", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(4, 0));
+        assertTrue(number.isPresent());
+        assertEquals("214350", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(4, 1));
+        assertTrue(number.isPresent());
+        assertEquals("214305", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(5, 0));
+        assertTrue(number.isPresent());
+        assertEquals("214365", number.get());
+        number = permutationStrategy.getNumber(new BullsCows(6, 0));
+        assertTrue(number.isPresent());
+        assertEquals("214365", number.get());
     }
 }

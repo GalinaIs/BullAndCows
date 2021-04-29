@@ -10,6 +10,7 @@ public class InitialState implements State {
     private final char[] chars;
     private int index = -1;
     private int count;
+    private char unsuitableChar;
 
     public InitialState(int countDigits) {
         this.countDigits = countDigits;
@@ -30,10 +31,18 @@ public class InitialState implements State {
             }
             count += bullsCows.getBulls();
         }
+        if (index != -1 && unsuitableChar == 0 && bullsCows.equals(new BullsCows())) {
+            unsuitableChar = Character.forDigit(index, 10);
+        }
     }
 
     private State updateState() {
-        return count < countDigits && index < 9 ? this : new PermutationState(countDigits, chars);
+        if (count < countDigits && index < 9) {
+            return this;
+        }
+        return unsuitableChar != 0
+                ? new PermutationStateWithUnsuitableChar(countDigits, chars, unsuitableChar)
+                : new PermutationState(countDigits, chars);
     }
 
     private Optional<String> getString() {
